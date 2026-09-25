@@ -191,25 +191,14 @@ layout {
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
-    // You can also add a border. It's similar to the focus ring, but always visible.
+    // >>> themely border
     border {
-        // The settings are the same as for the focus ring.
-        // If you enable the border, you probably want to disable the focus ring.
-
         width 2
-        active-color "#7fc8ff"
-        inactive-color "#505050"
-
-        // Color of the border around windows that request your attention.
-        urgent-color "#9b0000"
-
-        // Gradients can use a few different interpolation color spaces.
-        // For example, this is a pastel rainbow gradient via in="oklch longer hue".
-        //
-        //active-gradient from="#80c8ff" to="#c7ff7f" angle=45
-
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        active-color "#50c87c"
+        inactive-color "#30503c"
+        urgent-color "#f38ba8"
     }
+    // <<< themely
 
     // You can enable drop shadows for windows.
     shadow {
@@ -269,14 +258,16 @@ layout {
 
 // Environment variables for Qt theming
 environment {
-    QT_QPA_PLATFORMTHEME "qt5ct"
+    QT_QPA_PLATFORMTHEME "kde"  // plasma-integration: KDE/Qt6 apps recolor live from kdeglobals (themely)
     QT_QPA_PLATFORM "wayland"
 }
 
-spawn-at-startup "swaybg" "-i" "/conf/wallpapers/wallpaper.jpg" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/agony/.config/themely/current/wallpaper" "-m" "fill"
+spawn-at-startup "qs" "-c" "themely"
 spawn-at-startup "mako"
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"   // replaced by flowbar; uncomment to switch back
+spawn-at-startup "flowbar" "--daemon"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -346,6 +337,12 @@ window-rule {
     open-floating true
 }
 
+// themely dashboard
+window-rule {
+    match title="^themely$"
+    open-floating true
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -369,35 +366,13 @@ window-rule {
     draw-border-with-background false
 }
 
-// Set transparency for Firefox (matches kitty terminal transparency)
+// >>> themely opacity
 window-rule {
-    match app-id=r#"firefox$"#
-    opacity 0.90
+    exclude app-id=r#"^kitty$"#
+    opacity 0.85
 }
+// <<< themely
 
-// Set transparency for Vesktop (Discord client)
-window-rule {
-    match app-id=r#"vesktop$"#
-    opacity 0.90
-}
-
-// Set transparency for Spotify
-window-rule {
-    match app-id=r#"[Ss]potify$"#
-    opacity 0.90
-}
-
-// Set transparency for VS Code
-window-rule {
-    match app-id=r#"[Cc]ode$"#
-    opacity 0.90
-} 
-
-//set transparency for Dolphine
-window-rule {
-   match app-id=r#"dolphin$"#
-   opacity 0.85
-}
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -419,6 +394,8 @@ binds {
     Alt+D hotkey-overlay-title="Open Discord" { spawn "vesktop"; }
     Alt+S hotkey-overlay-title="Open Spotify" { spawn "spotify"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Slash hotkey-overlay-title="Toggle flowbar" { spawn "flowbar"; }
+    Mod+Shift+T hotkey-overlay-title="Switch theme" { spawn "qs" "-c" "themely" "ipc" "call" "switcher" "toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -429,9 +406,9 @@ binds {
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ && flowbar --peek volume"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1- && flowbar --peek volume"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && flowbar --peek volume"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     // Example media keys mapping using playerctl.
@@ -444,8 +421,8 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set +10% && flowbar --peek display"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl --class=backlight set 10%- && flowbar --peek display"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,

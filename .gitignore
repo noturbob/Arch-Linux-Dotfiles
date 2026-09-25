@@ -1,2 +1,6 @@
 lost+found/
 wallpapers/
+themely/themes/*/wallpaper
+themely/current
+*.themely-bak
+*.themely-tmp

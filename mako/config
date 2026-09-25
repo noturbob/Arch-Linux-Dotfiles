@@ -1,7 +1,4 @@
 font=JetBrainsMono Nerd Font 10
-background-color=#1e1e2edd
-text-color=#cdd6f4
-border-color=#89b4fa
 border-size=2
 border-radius=10
 width=300
@@ -9,3 +6,8 @@ height=100
 margin=10
 padding=15
 default-timeout=5000
+# >>> themely colors
+background-color=#19291fd9
+text-color=#d3eedd
+border-color=#50c87c
+# <<< themely
