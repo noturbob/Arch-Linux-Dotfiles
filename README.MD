@@ -61,7 +61,7 @@ The repo lives at `/conf`. Each config is symlinked into place:
 ### 🛠️ Setting it up on a fresh install
 
 ```sh
-sudo git clone https://github.com/noturbob/dotfiles /conf && sudo chown -R "$USER": /conf
+sudo git clone https://github.com/noturbob/Arch-Linux-Dotfiles /conf && sudo chown -R "$USER": /conf
 
 # packages
 sudo pacman -S niri kitty fuzzel mako swaybg swaylock fastfetch quickshell \
