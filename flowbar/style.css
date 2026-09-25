@@ -1,0 +1,10 @@
+/* Key badges as round 16px dots (pills for F1 etc.), tinted like the shell prompt.
+   The badge fills the chip's height, so vertical margins shrink it to 16px. */
+.chip .key {
+    color: var(--accent);
+    background: alpha(var(--accent), 0.22);
+    border-radius: 99px;
+    padding: 0 5px;
+    margin: calc((var(--bar-height) - 18px) / 2) 0;
+}
+.chip.active .key { color: var(--background); background: var(--accent-2); }
