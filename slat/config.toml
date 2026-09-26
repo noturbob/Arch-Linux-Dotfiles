@@ -1,0 +1,30 @@
+# Needs: a Nerd Font in your terminal, and true colour.
+# Chevron separators, Nord palette, a clock on the right.
+
+[theme]
+name = "nord"
+# >>> themely colors
+bg = "#291919"
+fg = "#eed3d3"
+dim = "#d59090"
+accent = "#ff1a1b"
+border = "#503030"
+tab_bg = "#3d2424"
+tab_fg = "#d59090"
+tab_active_bg = "#ff1a1b"
+tab_active_fg = "#291919"
+# <<< themely
+
+[borders]
+style = "rounded"
+
+[animation]
+split  = "120ms"
+move   = "140ms"
+easing = "out-back"   # overshoots slightly, then settles
+
+[status]
+left  = " {workspace} {tabs}"
+tab   = " {index} {name}{alert} "
+right = "{badge} {pane}/{panes}  {time} "
+alert = " ●"

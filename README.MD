@@ -12,6 +12,7 @@ desktop from the wallpaper.
 *   **Application Launcher:** `fuzzel`
 *   **Notifications:** `mako`
 *   **Shell:** `bash` (`bash/.bashrc`)
+*   **Multiplexer:** [`slat`](https://github.com/noturbob/slat): my own terminal multiplexer, recoloured live by themely
 *   **System Info:** `fastfetch`
 *   **Editor:** `vim`
 *   **Theme & Extras:** `gtk-3.0`, util `scripts/`, Spotify Wayland flags, a VLC launcher override
@@ -22,7 +23,7 @@ Everything is colored by [themely](https://github.com/noturbob/themely). Press *
 wallpaper, and these recolor, mostly live:
 *   niri borders and window opacity, kitty and the prompt, flowbar, mako, fuzzel
 *   VS Code / Antigravity, Vesktop, GTK and KDE apps
-*   Firefox and Zen (Pywalfox), btop and Spotify (spicetify)
+*   Firefox and Zen (Pywalfox), btop, slat and Spotify (spicetify)
 
 The configs here hold `>>> themely … <<< themely` marker blocks. themely rewrites only the lines between
 them, so everything outside is hand-written. Themes live in `themely/themes/`, and `themely/current`
@@ -54,6 +55,7 @@ The repo lives at `/conf`. Each config is symlinked into place:
 | `themely/` | `~/.config/themely` |
 | `kitty/kitty.conf` | `~/.config/kitty/kitty.conf` |
 | `fuzzel/fuzzel.ini` | `~/.config/fuzzel/fuzzel.ini` |
+| `slat/config.toml` | `~/.config/slat/config.toml` |
 | `bash/.bashrc` | `~/.bashrc` |
 | `spotify/spotify-flags.conf` | `~/.config/spotify-flags.conf` |
 | `applications/vlc.desktop` | `~/.local/share/applications/vlc.desktop` |
@@ -71,9 +73,10 @@ yay -S spicetify-cli              # Spotify theming
 
 # links
 for d in niri flowbar mako gtk-3.0 themely; do ln -sfn /conf/$d ~/.config/$d; done
-mkdir -p ~/.config/kitty ~/.config/fuzzel ~/.local/share/applications
+mkdir -p ~/.config/kitty ~/.config/fuzzel ~/.config/slat ~/.local/share/applications
 ln -sf /conf/kitty/kitty.conf           ~/.config/kitty/kitty.conf
 ln -sf /conf/fuzzel/fuzzel.ini          ~/.config/fuzzel/fuzzel.ini
+ln -sf /conf/slat/config.toml           ~/.config/slat/config.toml
 ln -sf /conf/bash/.bashrc               ~/.bashrc
 ln -sf /conf/spotify/spotify-flags.conf ~/.config/spotify-flags.conf
 ln -sf /conf/applications/vlc.desktop   ~/.local/share/applications/vlc.desktop
