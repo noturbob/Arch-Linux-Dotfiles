@@ -371,6 +371,9 @@ window-rule {
     exclude app-id=r#"^kitty$"#
     opacity 0.85
 }
+window-rule {
+    background-effect { blur true; }
+}
 // <<< themely
 
 binds {

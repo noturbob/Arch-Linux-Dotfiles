@@ -25,9 +25,9 @@ export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
 . /usr/share/git/completion/git-prompt.sh
 __prompt() {
   # *_bg = accent blended ~30% into base #1E1E2E, text = the full accent
-  local lav='180;190;254' lav_bg='90;94;129' blue='137;180;250' blue_bg='64;78;111' sap='116;199;236' sap_bg='52;74;95'
+  local lav='2;180;190;254' lav_bg='2;90;94;129' blue='2;137;180;250' blue_bg='2;64;78;111' sap='2;116;199;236' sap_bg='2;52;74;95'
   [ -r ~/.cache/themely/prompt.sh ] && . ~/.cache/themely/prompt.sh  # themely: current theme's colors, read every prompt
-  local fg='\[\e[38;2;' bg='\[\e[48;2;' r='\[\e[0m\]' sep=$'' last=$blue_bg
+  local fg='\[\e[38;' bg='\[\e[48;' r='\[\e[0m\]' sep=$'' last=$blue_bg
   __branch=$(__git_ps1 '%s')  # referenced as \${__branch} so branch names can't inject commands
   PS1="${fg}${lav_bg}m\]"$''"${bg}${lav_bg}m\]${fg}${lav}m\] \u@\h ${bg}${blue_bg}m\]${fg}${lav_bg}m\]$sep${fg}${blue}m\] \W "
   if [[ -n $__branch ]]; then
