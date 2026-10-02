@@ -194,8 +194,8 @@ layout {
     // >>> themely border
     border {
         width 2
-        active-color "#ff1a1b"
-        inactive-color "#503030"
+        active-color "#89b4fa"
+        inactive-color "#303c50"
         urgent-color "#f38ba8"
     }
     // <<< themely
@@ -373,6 +373,10 @@ window-rule {
 }
 window-rule {
     background-effect { blur true; }
+}
+layer-rule {
+    match namespace="^themely-backdrop$"
+    place-within-backdrop true
 }
 // <<< themely
 
