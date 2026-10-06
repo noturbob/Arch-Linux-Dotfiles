@@ -43,6 +43,25 @@ opacity and blurs what's behind it.
 
 <img src="screenshots/tiling.webp" alt="btop and tty-clock side by side in two translucent kitty columns" width="100%">
 
+### slat
+
+[slat](https://github.com/noturbob/slat), my own terminal multiplexer: splits, tabs and a status line, recoloured live by
+themely. It's scriptable too: `slat pane new --split v --cmd htop` built this layout.
+
+<img src="screenshots/slat.webp" alt="slat with vim, a clock and htop in three panes" width="100%">
+
+### VS Code
+
+The Catppuccin theme with themely's colours on top, so the editor follows the wallpaper like everything else.
+
+<img src="screenshots/vscode.webp" alt="VS Code editing a shell script from this repo, themed to match the desktop" width="100%">
+
+### Spotify
+
+Spicetify brings Spotify into the theme too.
+
+<img src="screenshots/spotify.webp" alt="Spotify home page themed with spicetify to match the desktop" width="100%">
+
 ### Zen, edge to edge
 
 Zen in compact mode, so the page runs to the window's edge. Pywalfox keeps Zen and Firefox on the current theme.
@@ -54,6 +73,12 @@ Zen in compact mode, so the page runs to the window's edge. Pywalfox keeps Zen a
 `fuzzel` on **Mod+D**, recoloured with everything else.
 
 <img src="screenshots/fuzzel.webp" alt="fuzzel application launcher over the wallpaper" width="100%">
+
+### Files
+
+Dolphin, translucent like every other window, with GTK and KDE apps following the theme.
+
+<img src="screenshots/dolphin.webp" alt="Dolphin file manager showing this repo, translucent over the wallpaper" width="100%">
 
 ### Bar and notifications
 
