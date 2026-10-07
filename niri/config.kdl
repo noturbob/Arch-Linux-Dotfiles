@@ -157,8 +157,8 @@ layout {
     // >>> themely border
     border {
         width 2
-        active-color "#547dc5"
-        inactive-color "#303b50"
+        active-color "#89b4fa"
+        inactive-color "#303c50"
         urgent-color "#f38ba8"
     }
     // <<< themely
