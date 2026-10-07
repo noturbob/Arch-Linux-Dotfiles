@@ -7,7 +7,7 @@ margin=10
 padding=15
 default-timeout=5000
 # >>> themely colors
-background-color=#191f29d9
-text-color=#d3ddee
-border-color=#89b4fa
+background-color=#19291fd9
+text-color=#d3eedd
+border-color=#50c87c
 # <<< themely

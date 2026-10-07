@@ -4,15 +4,15 @@
 [theme]
 name = "nord"
 # >>> themely colors
-bg = "#191f29"
-fg = "#d3ddee"
-dim = "#90aad5"
-accent = "#89b4fa"
-border = "#303c50"
-tab_bg = "#242e3d"
-tab_fg = "#90aad5"
-tab_active_bg = "#89b4fa"
-tab_active_fg = "#191f29"
+bg = "#19291f"
+fg = "#d3eedd"
+dim = "#90d5a9"
+accent = "#50c87c"
+border = "#30503c"
+tab_bg = "#243d2d"
+tab_fg = "#90d5a9"
+tab_active_bg = "#50c87c"
+tab_active_fg = "#19291f"
 # <<< themely
 
 [borders]
