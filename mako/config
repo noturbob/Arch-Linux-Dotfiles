@@ -9,5 +9,5 @@ default-timeout=5000
 # >>> themely colors
 background-color=#191f29d9
 text-color=#d3ddee
-border-color=#89b4fa
+border-color=#547dc5
 # <<< themely
