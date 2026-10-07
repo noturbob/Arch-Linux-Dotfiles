@@ -1,0 +1,24 @@
+image=/home/agony/.config/themely/current/wallpaper
+scaling=fill
+indicator-radius=90
+show-failed-attempts
+ignore-empty-password
+# >>> themely colors
+color=191f29
+inside-color=191f29cc
+inside-ver-color=191f29cc
+inside-wrong-color=191f29cc
+inside-clear-color=191f29cc
+ring-color=303b50
+ring-ver-color=54acc5
+ring-wrong-color=f38ba8
+ring-clear-color=54acc5
+key-hl-color=547dc5
+bs-hl-color=f38ba8
+text-color=d3ddee
+text-ver-color=d3ddee
+text-wrong-color=f38ba8
+text-clear-color=d3ddee
+line-color=00000000
+separator-color=00000000
+# <<< themely
